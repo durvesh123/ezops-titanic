@@ -13,4 +13,6 @@ public interface PassengerService {
 
 	public void deletePassenger(int theId);
 	
+	public List<Passenger> getPassengersByFilter(Passenger passenger);
+	
 }

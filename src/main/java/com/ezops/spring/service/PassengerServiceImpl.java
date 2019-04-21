@@ -41,6 +41,12 @@ public class PassengerServiceImpl implements PassengerService {
 		
 		customerDAO.deletePassenger(theId);
 	}
+
+	@Override
+	@Transactional
+	public List<Passenger> getPassengersByFilter(Passenger passenger) {
+		return customerDAO.getPassengersByFilter(passenger);
+	}
 }
 
 

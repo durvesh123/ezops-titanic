@@ -13,4 +13,6 @@ public interface PassengerDAO {
 
 	public void deletePassenger(int theId);
 	
+	public List<Passenger> getPassengersByFilter(Passenger passenger);
+	
 }

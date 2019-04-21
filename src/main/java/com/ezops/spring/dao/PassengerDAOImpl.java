@@ -71,6 +71,36 @@ public class PassengerDAOImpl implements PassengerDAO {
 		theQuery.executeUpdate();		
 	}
 
+	@Override
+	public List<Passenger> getPassengersByFilter(Passenger passenger) {
+		
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// create a query  ... sort by last name
+		String sex = passenger.getSex();
+		int passenger_class = passenger.getPassenger_class();
+		String name = passenger.getName();
+		
+		Query<Passenger> theQuery = currentSession.createQuery("from Passenger where sex = :sex "
+				+ "and passenger_class = :passenger_class and name = :name", 
+				Passenger.class);
+		
+		theQuery.setParameter("sex", sex);
+		theQuery.setParameter("passenger_class", passenger_class);
+		theQuery.setParameter("name", name);
+		
+		// execute query and get result list
+		List<Passenger> customers = theQuery.getResultList();
+					
+		System.out.println("--------------------"+customers+"--------------------");
+		// return the results		
+		return customers;
+		
+	}
+	
+	
+
 }
 
 
