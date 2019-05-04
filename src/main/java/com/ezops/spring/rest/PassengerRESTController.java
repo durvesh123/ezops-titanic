@@ -21,6 +21,11 @@ public class PassengerRESTController {
 
 	@Autowired
 	private PassengerService passengerService;
+	
+	@GetMapping("/test")
+	public String test() {
+		return "Hello World!";
+	}
 
 	@GetMapping("/passengers")
 	@CrossOrigin(origins = "http://localhost:3000")
